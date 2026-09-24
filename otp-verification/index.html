@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="robots"
+    content="noindex,nofollow"
+  >
+
+  <meta
+    name="description"
+    content="Secure TectraOne application OTP verification."
+  >
+
+  <title>Verify Application | TectraOne</title>
+
+
+  <!-- =====================================================
+       FONT AWESOME
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
+
+
+  <!-- =====================================================
+       OTP CSS
+  ====================================================== -->
+
+  <link
+    rel="stylesheet"
+    href="https://tectraone.com/assets/otp-verification/style.css"
+  >
+
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       COMETS
+  ====================================================== -->
+
+  <div class="comet"></div>
+  <div class="comet"></div>
+  <div class="comet"></div>
+
+
+  <!-- =====================================================
+       PAGE
+  ====================================================== -->
+
+  <div class="page">
+
+
+    <!-- ===================================================
+         BRAND
+    ==================================================== -->
+
+    <header class="brand">
+
+      <a href="/">
+        Tectra<span>One</span>
+      </a>
+
+    </header>
+
+
+    <!-- ===================================================
+         MAIN
+    ==================================================== -->
+
+    <main class="main">
+
+      <div class="otp-wrapper">
+
+
+        <!-- ===============================================
+             PAGE STATUS
+        ================================================ -->
+
+        <div
+          class="page-status"
+          id="pageStatus"
+          aria-live="polite"
+        >
+          Application verification
+        </div>
+
+
+        <!-- ===============================================
+             OTP CARD
+        ================================================ -->
+
+        <section class="glass-card">
+
+
+          <!-- =============================================
+               SECURITY ICON
+          ============================================== -->
+
+          <div class="security-icon">
+
+            <i class="fa-solid fa-shield-halved"></i>
+
+          </div>
+
+
+          <!-- =============================================
+               HEADING
+          ============================================== -->
+
+          <div class="card-heading">
+
+            <h1>
+              Verify your application
+            </h1>
+
+            <p>
+              Enter the 6-digit verification code
+              sent to the mobile number registered
+              with your TectraOne application.
+            </p>
+
+          </div>
+
+
+          <!-- =============================================
+               MOBILE NUMBER
+          ============================================== -->
+
+          <div class="mobile-info">
+
+            <i class="fa-solid fa-mobile-screen-button"></i>
+
+            &nbsp;
+
+            OTP sent to
+
+            <strong id="mobileNumber">
+              Loading...
+            </strong>
+
+          </div>
+
+
+          <!-- =============================================
+               APPLICATION STEPPER
+          ============================================== -->
+
+          <div class="stepper">
+
+
+            <!-- Application -->
+
+            <div class="step completed">
+
+              <div class="step-dot">
+                <i class="fa-solid fa-check"></i>
+              </div>
+
+              <span>
+                Application
+              </span>
+
+            </div>
+
+
+          </div>
+
+          <!-- =============================================
+               OTP AREA
+          ============================================== -->
+
+          <div class="otp-area">
+
+
+            <div class="otp-label">
+
+              Enter verification code
+
+            </div>
+
+
+            <!-- ===========================================
+                 OTP INPUTS
+            ============================================ -->
+
+            <div
+              class="otp-inputs"
+              id="otpInputs"
+            >
+
+              <input
+                type="text"
+                class="otp-input"
+                inputmode="numeric"
+                maxlength="1"
+                autocomplete="one-time-code"
+                aria-label="OTP digit 1"
+              >
+
+              <input
+                type="text"
+                class="otp-input"
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="OTP digit 2"
+              >
+
+              <input
+                type="text"
+                class="otp-input"
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="OTP digit 3"
+              >
+
+              <input
+                type="text"
+                class="otp-input"
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="OTP digit 4"
+              >
+
+              <input
+                type="text"
+                class="otp-input"
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="OTP digit 5"
+              >
+
+              <input
+                type="text"
+                class="otp-input"
+                inputmode="numeric"
+                maxlength="1"
+                aria-label="OTP digit 6"
+              >
+
+            </div>
+
+
+            <!-- ===========================================
+                 TIMER
+            ============================================ -->
+
+            <div class="timer-box">
+
+              <span id="timerText">
+                OTP expires in
+              </span>
+
+              <strong id="timer">
+                2:00
+              </strong>
+
+            </div>
+
+
+          </div>
+
+
+          <!-- =============================================
+               STATUS MESSAGE
+          ============================================== -->
+
+          <div
+            id="statusMessage"
+            class="status-message"
+            aria-live="polite"
+          ></div>
+
+
+          <!-- =============================================
+               VERIFY BUTTON
+          ============================================== -->
+
+          <button
+            type="button"
+            class="primary-btn"
+            id="verifyBtn"
+          >
+
+            <span id="verifyText">
+              Verify OTP
+            </span>
+
+            <span id="submitArrow">
+              <i class="fa-solid fa-arrow-right"></i>
+            </span>
+
+          </button>
+
+
+          <!-- =============================================
+               ACTIONS
+          ============================================== -->
+
+          <div class="actions">
+
+
+            <button
+              type="button"
+              class="secondary-btn resend-btn"
+              id="resendBtn"
+              disabled
+            >
+
+              <i class="fa-solid fa-rotate-right"></i>
+
+              &nbsp;
+
+              Resend OTP
+
+            </button>
+
+
+            <button
+              type="button"
+              class="secondary-btn"
+              id="changeNumberBtn"
+            >
+
+              <i class="fa-solid fa-pen"></i>
+
+              &nbsp;
+
+              Change number
+
+            </button>
+
+
+          </div>
+
+
+          <!-- =============================================
+               APPLICATION ID
+          ============================================== -->
+
+          <div class="application-reference">
+
+            Application ID
+
+            <strong id="applicationId">
+              Loading...
+            </strong>
+
+          </div>
+
+
+          <!-- =============================================
+               SECURITY NOTE
+          ============================================== -->
+
+          <div class="security-note">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <span>
+              Your verification code is confidential.
+              Never share your OTP with anyone.
+              TectraOne representatives will never
+              ask you to disclose your OTP.
+            </span>
+
+          </div>
+
+
+        </section>
+
+
+      </div>
+
+    </main>
+
+
+    <!-- ===================================================
+         FOOTER
+    ==================================================== -->
+
+    <footer class="footer">
+
+      <i class="fa-solid fa-shield-halved"></i>
+
+      TectraOne · Secure digital lending application
+
+    </footer>
+
+
+  </div>
+
+
+  <!-- =====================================================
+       OTP JAVASCRIPT
+  ====================================================== -->
+
+  <script
+    src="https://tectraone.com/assets/otp-verification/script.js"
+    defer
+  ></script>
+
+
+</body>
+
+</html>
