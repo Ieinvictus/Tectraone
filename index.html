@@ -226,7 +226,7 @@
     rel="stylesheet"
     href="https://tectraone.com/assets/home/style.css"
   >
-
+<link rel="">
 
   <!-- =========================================
        WEBSITE / BRAND STRUCTURED DATA
@@ -286,7 +286,15 @@
      BRAND / DOMAIN FOR SALE POPUP
 ========================================= -->
 
+<!-- =========================================
+     BRAND / DOMAIN FOR SALE POPUP
+========================================= -->
+
 <div class="sale-popup-overlay" id="salePopup">
+
+  <!-- Galaxy Background -->
+  <div class="sale-stars"></div>
+  <div class="sale-nebula"></div>
 
   <div class="sale-popup">
 
@@ -294,6 +302,7 @@
     <button
       class="sale-close"
       id="saleClose"
+      type="button"
       aria-label="Close popup"
     >
       ×
@@ -302,13 +311,17 @@
 
     <!-- TOP LABEL -->
     <div class="sale-badge">
+      <span class="badge-dot"></span>
       AVAILABLE
     </div>
 
 
     <!-- BRAND -->
     <div class="sale-brand">
-      <span class="sale-brand-icon">T</span>
+
+      <div class="sale-brand-icon">
+        T
+      </div>
 
       <div>
         <span class="sale-small">
@@ -319,11 +332,11 @@
           Tectra One
         </h2>
       </div>
+
     </div>
 
 
     <!-- CONTENT -->
-
     <div class="sale-content">
 
       <span class="sale-label">
@@ -343,62 +356,80 @@
     </div>
 
 
-    <!-- ASSETS -->
-
+    <!-- DIGITAL ASSETS -->
     <div class="sale-assets">
 
+      <!-- DOMAIN -->
       <div class="sale-asset">
 
-        <span class="asset-icon">◉</span>
+        <div class="asset-icon domain-icon">
+          <i class="fa-solid fa-globe"></i>
+        </div>
 
-        <div>
+        <div class="asset-info">
           <small>DOMAIN</small>
           <strong>tectraone.com</strong>
         </div>
 
+        <span class="asset-arrow">↗</span>
+
       </div>
 
 
+      <!-- INSTAGRAM -->
       <div class="sale-asset">
 
-        <span class="asset-icon">◎</span>
+        <div class="asset-icon instagram-icon">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
 
-        <div>
+        <div class="asset-info">
           <small>INSTAGRAM</small>
           <strong>@tectraone</strong>
         </div>
 
+        <span class="asset-arrow">↗</span>
+
       </div>
 
 
+      <!-- FACEBOOK -->
       <div class="sale-asset">
 
-        <span class="asset-icon">f</span>
+        <div class="asset-icon facebook-icon">
+          <i class="fa-brands fa-facebook-f"></i>
+        </div>
 
-        <div>
+        <div class="asset-info">
           <small>FACEBOOK</small>
           <strong>Tectra One</strong>
         </div>
 
+        <span class="asset-arrow">↗</span>
+
       </div>
 
 
+      <!-- X -->
       <div class="sale-asset">
 
-        <span class="asset-icon">𝕏</span>
+        <div class="asset-icon x-icon">
+          <i class="fa-brands fa-x-twitter"></i>
+        </div>
 
-        <div>
+        <div class="asset-info">
           <small>SOCIAL IDENTITY</small>
           <strong>Tectra One</strong>
         </div>
+
+        <span class="asset-arrow">↗</span>
 
       </div>
 
     </div>
 
 
-    <!-- CTA -->
-
+    <!-- FOOTER -->
     <div class="sale-footer">
 
       <div class="sale-status">
@@ -418,7 +449,10 @@
 
   </div>
 
-  </div>
+</div>
+
+
+
   
   <!-- =========================================
        GALAXY BACKGROUND
