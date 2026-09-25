@@ -2,58 +2,97 @@
    BRAND SALE POPUP
 ========================================= */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
   const popup = document.getElementById("salePopup");
   const closeBtn = document.getElementById("saleClose");
 
+  /* Safety check */
 
-  /* OPEN POPUP WHEN WEBSITE LOADS */
+  if (!popup) {
+    console.warn("Sale popup #salePopup not found.");
+    return;
+  }
 
-  setTimeout(() => {
+
+  /* =========================================
+     OPEN POPUP
+  ========================================= */
+
+  function openPopup() {
 
     popup.classList.add("show");
 
     document.body.classList.add("popup-open");
 
-  }, 500);
+  }
 
 
-  /* CLOSE BUTTON */
+  /* =========================================
+     CLOSE POPUP
+  ========================================= */
 
-  closeBtn.addEventListener("click", () => {
+  function closePopup() {
 
     popup.classList.remove("show");
 
     document.body.classList.remove("popup-open");
 
-  });
+  }
 
 
-  /* CLOSE WHEN CLICKING OUTSIDE */
+  /* =========================================
+     AUTO OPEN
+  ========================================= */
 
-  popup.addEventListener("click", (event) => {
+  setTimeout(function () {
+
+    openPopup();
+
+  }, 500);
+
+
+  /* =========================================
+     CLOSE BUTTON
+  ========================================= */
+
+  if (closeBtn) {
+
+    closeBtn.addEventListener("click", function (event) {
+
+      event.preventDefault();
+
+      closePopup();
+
+    });
+
+  }
+
+
+  /* =========================================
+     CLICK OUTSIDE
+  ========================================= */
+
+  popup.addEventListener("click", function (event) {
 
     if (event.target === popup) {
 
-      popup.classList.remove("show");
-
-      document.body.classList.remove("popup-open");
+      closePopup();
 
     }
 
   });
 
 
-  /* ESC KEY */
+  /* =========================================
+     ESC KEY
+  ========================================= */
 
-  document.addEventListener("keydown", (event) => {
+  document.addEventListener("keydown", function (event) {
 
     if (event.key === "Escape") {
 
-      popup.classList.remove("show");
-
-      document.body.classList.remove("popup-open");
+      closePopup();
 
     }
 
